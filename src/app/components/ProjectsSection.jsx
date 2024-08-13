@@ -10,7 +10,7 @@ const projectsData = [
     title: "MeArm v0.4",
     description: "Developed a 3D-printed MeArm v0.4 robotic arm, controlled by an ESP8622 NodeMCU and programmed in Lua.",
     image: "https://aurtmqhwnryjpytqiltv.supabase.co/storage/v1/object/public/projects/MeArm/header.jpg",
-    tag: ["All", "CAD", "Embedded Systems"],
+    tag: ["All", "CAD/CAM/CAE", "Embedded Systems"],
     gitUrl: "/",
     previewUrl: "https://www.intromech.com/",
   },
@@ -25,7 +25,7 @@ const projectsData = [
   },
 ];
 
-const categories = ["All", "WEB", "CAD", "CAM", "CAE", "Embedded Systems"]
+const categories = ["All", "Web", "CAD/CAM/CAE", "Embedded Systems"]
 
 const ProjectsSection = () => {
   const [tag, setTag] = useState("All");
@@ -50,7 +50,7 @@ const ProjectsSection = () => {
       <h2 className="text-center text-4xl font-bold text-white mt-4 mb-8 md:mb-12">
         My Projects
       </h2>
-      <div className="text-white flex flex-row justify-center items-center gap-2 py-6">
+      <div className="text-white flex flex-wrap justify-center items-center gap-2 py-6">
         {categories.map(category => (
           <ProjectTag
           key={category}
