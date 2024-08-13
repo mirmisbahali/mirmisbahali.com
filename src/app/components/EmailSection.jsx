@@ -6,7 +6,7 @@ import Link from "next/link";
 import Image from "next/image";
 
 const EmailSection = () => {
-  const [emailSubmitted, setEmailSubmitted] = useState(false);
+
 
   return (
     <section
@@ -34,12 +34,7 @@ const EmailSection = () => {
         </div>
       </div>
       <div>
-        {emailSubmitted ? (
-          <p className="text-green-500 text-sm mt-2">
-            Email sent successfully!
-          </p>
-        ) : (
-          <form className="flex flex-col" action="https://formsubmit.co/weputoru@mailgolem.com" method="POST">
+          <form className="flex flex-col" action="https://formspree.io/f/myzgjvjb" method="POST">
             <div className="mb-6">
               <label
                 htmlFor="email"
@@ -93,7 +88,6 @@ const EmailSection = () => {
               Send Message
             </button>
           </form>
-        )}
       </div>
     </section>
   );
