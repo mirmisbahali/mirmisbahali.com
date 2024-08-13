@@ -53,6 +53,7 @@ const ProjectsSection = () => {
       <div className="text-white flex flex-row justify-center items-center gap-2 py-6">
         {categories.map(category => (
           <ProjectTag
+          key={category}
           onClick={handleTagChange}
           name={category}
           isSelected={tag === category}
