@@ -1,28 +1,10 @@
-# Portfolio Website
+# Personal Website
 
-This is a portfolio website built with Next.js and Tailwind CSS. It showcases your skills, projects, and achievements in an elegant and responsive design.
+Welcome to my personal website! This site showcases my skills and projects and provides a way for you to get in touch with me. 
 
-## Installation
+It features a contact form that sends your message directly to my email, so feel free to reach out, and I’ll reply to you as soon as possible.
 
-1. Clone the repository: `git clone https://github.com/judygab/nextjs-portfolio.git`
-2. Navigate to the project directory: `cd portfolio-website`
-3. Install the dependencies: `npm install`
-
-## Usage
-
-1. Start the development server: `npm run dev`
-2. Open your browser and visit `http://localhost:3000` to view the website.
-
-## Dependencies
-
-The following dependencies are required for this project:
-
-- Next.js: A React framework for server-side rendering and static site generation.
-- Tailwind CSS: A highly customizable CSS framework.
-- React: A JavaScript library for building user interfaces.
-- React Icons: A collection of popular icons for React projects.
-- TypeScript: A typed superset of JavaScript that compiles to plain JavaScript.
-- Resend: Resend is the email API for developers.
+Thanks to [webdevdecoded](https://www.youtube.com/@webdecoded) for the awesome template!
 
 ## License
 
