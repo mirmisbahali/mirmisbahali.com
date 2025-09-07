@@ -78,6 +78,13 @@ const ProjectModal = ({
   };
 
   if (!project) return null;
+  
+  // Debug: Check if contentHtml is available
+  console.log('ProjectModal project data:', { 
+    title: project.title,
+    hasContentHtml: !!project.contentHtml,
+    contentHtmlLength: project.contentHtml?.length
+  });
 
   const backdropVariants = {
     hidden: { opacity: 0 },
@@ -153,7 +160,7 @@ const ProjectModal = ({
         >
           <motion.div
             id="project-modal"
-            className="bg-[#181818] rounded-lg max-w-4xl w-full max-h-[90vh] overflow-y-auto relative shadow-2xl border border-slate-700 mx-auto"
+            className="bg-black/60 backdrop-blur-md border border-white/20 hover:border-white/30 transition-all duration-300 rounded-xl max-w-4xl w-full max-h-[90vh] overflow-y-auto relative shadow-2xl mx-auto"
             style={{
               transform: 'none', // Override any inherited transforms
               position: 'relative',
@@ -165,20 +172,35 @@ const ProjectModal = ({
             exit="exit"
             onClick={(e) => e.stopPropagation()}
           >
-            {/* Close Button */}
-            <motion.button
-              className="absolute top-4 right-4 z-10 p-2 rounded-full bg-[#262626] hover:bg-[#333] transition-colors duration-200"
-              onClick={onClose}
-              whileHover={{ scale: 1.1 }}
-              whileTap={{ scale: 0.9 }}
-            >
-              <XMarkIcon className="h-6 w-6 text-white" />
-            </motion.button>
+            {/* Top Action Bar */}
+            <div className="absolute top-4 right-4 z-10 flex gap-2">
+              {/* View Fullscreen Button */}
+              <motion.button
+                onClick={handleFullscreen}
+                className="p-2 rounded-full bg-black/40 backdrop-blur-md border border-white/30 hover:border-white/50 hover:bg-black/60 transition-all duration-200"
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.9 }}
+                title="View Fullscreen"
+              >
+                <ArrowsPointingOutIcon className="h-5 w-5 text-white" />
+              </motion.button>
+              
+              {/* Close Button */}
+              <motion.button
+                className="p-2 rounded-full bg-black/40 backdrop-blur-md border border-white/30 hover:border-white/50 hover:bg-black/60 transition-all duration-200"
+                onClick={onClose}
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.9 }}
+                title="Close"
+              >
+                <XMarkIcon className="h-5 w-5 text-white" />
+              </motion.button>
+            </div>
 
             {/* Project Image */}
             {project.image && (
               <motion.div
-                className="relative h-64 md:h-80 rounded-t-lg overflow-hidden"
+                className="relative h-48 md:h-64 rounded-t-xl overflow-hidden"
                 custom={0}
                 variants={contentVariants}
                 initial="hidden"
@@ -192,23 +214,23 @@ const ProjectModal = ({
                   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                   priority
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#181818] to-transparent opacity-60"></div>
+                <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-40"></div>
               </motion.div>
             )}
 
-            <div className="p-6 md:p-8">
+            <div className="p-6 bg-black/20 backdrop-blur-sm">
               {/* Project Title & Description */}
               <motion.div
                 custom={1}
                 variants={contentVariants}
                 initial="hidden"
                 animate="visible"
-                className="mb-6"
+                className="mb-4"
               >
-                <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+                <h2 className="text-2xl md:text-3xl font-light text-white mb-3 tracking-tight">
                   {project.title}
                 </h2>
-                <p className="text-lg text-[#ADB7BE] leading-relaxed">
+                <p className="text-base text-slate-300 leading-relaxed">
                   {project.description}
                 </p>
               </motion.div>
@@ -226,7 +248,7 @@ const ProjectModal = ({
                     {project.tag.filter(tag => tag !== 'All').map((tag) => (
                       <span
                         key={tag}
-                        className="px-3 py-1 bg-gradient-to-br from-primary-500 to-secondary-500 text-white text-sm rounded-full"
+                        className="px-3 py-1 bg-black/30 backdrop-blur-sm border border-white/30 text-white text-xs rounded-full tracking-wide"
                       >
                         {tag}
                       </span>
@@ -235,24 +257,53 @@ const ProjectModal = ({
                 </motion.div>
               )}
 
+              {/* Markdown Content */}
+              {project.contentHtml && (
+                <motion.div
+                  custom={3}
+                  variants={contentVariants}
+                  initial="hidden"
+                  animate="visible"
+                  className="mb-6"
+                >
+                  <div className="bg-black/20 backdrop-blur-sm rounded-lg p-4 border border-white/10">
+                    <div 
+                      className="prose prose-invert prose-sm max-w-none
+                        prose-headings:text-white prose-headings:font-light prose-headings:tracking-tight
+                        prose-h1:text-2xl prose-h2:text-xl prose-h3:text-lg
+                        prose-p:text-slate-300 prose-p:leading-relaxed
+                        prose-ul:text-slate-300 prose-ol:text-slate-300
+                        prose-li:text-slate-300 prose-li:mb-1
+                        prose-strong:text-white prose-strong:font-medium
+                        prose-code:text-primary-300 prose-code:bg-black/30 prose-code:px-2 prose-code:py-1 prose-code:rounded prose-code:text-sm
+                        prose-pre:bg-black/40 prose-pre:border prose-pre:border-white/20 prose-pre:rounded-lg
+                        prose-blockquote:border-l-primary-400 prose-blockquote:border-l-4 prose-blockquote:pl-4 prose-blockquote:text-slate-300
+                        prose-a:text-primary-400 prose-a:no-underline hover:prose-a:text-primary-300 prose-a:transition-colors
+                      "
+                      dangerouslySetInnerHTML={{ __html: project.contentHtml }}
+                    />
+                  </div>
+                </motion.div>
+              )}
+
               {/* External Links */}
               <motion.div
-                custom={3}
+                custom={4}
                 variants={contentVariants}
                 initial="hidden"
                 animate="visible"
-                className="mb-8"
+                className="mb-6"
               >
-                <div className="flex flex-wrap gap-4">
+                <div className="flex flex-wrap gap-3">
                   {project.previewUrl && project.previewUrl !== '/' && (
                     <Link
                       href={project.previewUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 bg-gradient-to-br from-primary-500 to-secondary-500 hover:from-primary-600 hover:to-secondary-600 text-white font-medium py-2 px-4 rounded-lg transition-all duration-200 hover:scale-105"
+                      className="inline-flex items-center gap-2 bg-black/30 backdrop-blur-sm border border-primary-400/50 hover:border-primary-400/80 hover:bg-black/50 text-white font-medium py-2 px-4 rounded-lg transition-all duration-200 hover:scale-105 text-sm"
                     >
-                      <EyeIcon className="h-5 w-5" />
-                      View Live Project
+                      <EyeIcon className="h-4 w-4" />
+                      View Live
                     </Link>
                   )}
                   {project.gitUrl && project.gitUrl !== '/' && (
@@ -260,37 +311,15 @@ const ProjectModal = ({
                       href={project.gitUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 border border-[#ADB7BE] hover:border-white text-[#ADB7BE] hover:text-white font-medium py-2 px-4 rounded-lg transition-all duration-200 hover:scale-105"
+                      className="inline-flex items-center gap-2 bg-black/30 backdrop-blur-sm border border-white/30 hover:border-white/50 hover:bg-black/50 text-white hover:text-white font-medium py-2 px-4 rounded-lg transition-all duration-200 hover:scale-105 text-sm"
                     >
-                      <CodeBracketIcon className="h-5 w-5" />
+                      <CodeBracketIcon className="h-4 w-4" />
                       View Code
                     </Link>
                   )}
                 </div>
               </motion.div>
 
-              {/* Action Buttons */}
-              <motion.div
-                custom={4}
-                variants={contentVariants}
-                initial="hidden"
-                animate="visible"
-                className="flex flex-col sm:flex-row gap-4 pt-4 border-t border-slate-700"
-              >
-                <button
-                  onClick={handleFullscreen}
-                  className="flex-1 inline-flex items-center justify-center gap-2 bg-gradient-to-br from-primary-500 to-secondary-500 hover:from-primary-600 hover:to-secondary-600 text-white font-medium py-3 px-6 rounded-lg transition-all duration-200 hover:scale-105"
-                >
-                  <ArrowsPointingOutIcon className="h-5 w-5" />
-                  View Fullscreen
-                </button>
-                <button
-                  onClick={onClose}
-                  className="flex-1 inline-flex items-center justify-center border border-slate-600 hover:border-slate-500 text-[#ADB7BE] hover:text-white font-medium py-3 px-6 rounded-lg transition-all duration-200"
-                >
-                  Close
-                </button>
-              </motion.div>
             </div>
           </motion.div>
         </motion.div>

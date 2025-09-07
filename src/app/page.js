@@ -7,8 +7,8 @@ import Footer from "./components/Footer";
 import AchievementsSection from "./components/AchievementsSection";
 import { getAllProjects, getAllCategories } from "../lib/projects";
 
-export default function Home() {
-  const projects = getAllProjects();
+export default async function Home() {
+  const projects = await getAllProjects();
   const categories = getAllCategories();
   return (
     <main className="flex min-h-screen flex-col bg-[#121212]">

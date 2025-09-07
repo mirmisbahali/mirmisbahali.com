@@ -6,19 +6,10 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 import ProjectModal from "./ProjectModal";
 
-const ProjectCard = ({ imgUrl, title, description, gitUrl, previewUrl, slug, tag, id }) => {
+const ProjectCard = ({ project }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
-  const projectData = {
-    id,
-    title,
-    description,
-    image: imgUrl,
-    gitUrl,
-    previewUrl,
-    slug,
-    tag
-  };
+  const { id, title, description, image: imgUrl, gitUrl, previewUrl, slug, tag } = project;
 
   const handleViewProject = () => {
     setIsModalOpen(true);
@@ -48,7 +39,7 @@ const ProjectCard = ({ imgUrl, title, description, gitUrl, previewUrl, slug, tag
             src={imgUrl}
             alt={title}
             fill
-            className="object-contain group-hover:scale-105 transition-transform duration-500 ease-out"
+            className="object-cover group-hover:scale-105 transition-transform duration-500 ease-out"
             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
           />
           {/* Subtle overlay gradient */}
@@ -134,7 +125,7 @@ const ProjectCard = ({ imgUrl, title, description, gitUrl, previewUrl, slug, tag
         <ProjectModal
           isOpen={isModalOpen}
           onClose={() => setIsModalOpen(false)}
-          project={projectData}
+          project={project}
         />,
         document.body
       )}

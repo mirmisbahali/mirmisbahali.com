@@ -85,28 +85,40 @@ export function getAllProjectSlugs() {
   }));
 }
 
-export function getAllProjects() {
+export async function getAllProjects() {
   const projectFolders = fs.readdirSync(projectsDirectory);
-  const allProjects = projectFolders.map((folder) => {
-    const fullPath = path.join(projectsDirectory, folder, 'README.md');
-    const fileContents = fs.readFileSync(fullPath, 'utf8');
-    const matterResult = matter(fileContents);
+  const allProjects = await Promise.all(
+    projectFolders.map(async (folder) => {
+      const fullPath = path.join(projectsDirectory, folder, 'README.md');
+      const fileContents = fs.readFileSync(fullPath, 'utf8');
+      const matterResult = matter(fileContents);
 
-    // Process project assets
-    const assets = processProjectAssets(folder);
-    
-    // Process frontmatter image path
-    const processedData = { ...matterResult.data };
-    if (processedData.image) {
-      processedData.image = processFrontmatterImage(processedData.image, assets);
-    }
+      // Process project assets
+      const assets = processProjectAssets(folder);
+      
+      // Process image paths in markdown content
+      const processedMarkdown = processImagePaths(matterResult.content, assets);
+      
+      // Use remark to convert markdown into HTML string
+      const processedContent = await remark()
+        .use(html)
+        .process(processedMarkdown);
+      const contentHtml = processedContent.toString();
 
-    return {
-      slug: folder,
-      ...processedData,
-      assets, // Include assets info for future use
-    };
-  });
+      // Process frontmatter image path
+      const processedData = { ...matterResult.data };
+      if (processedData.image) {
+        processedData.image = processFrontmatterImage(processedData.image, assets);
+      }
+
+      return {
+        slug: folder,
+        contentHtml, // Include processed markdown content
+        ...processedData,
+        assets, // Include assets info for future use
+      };
+    })
+  );
 
   // Sort projects by id
   return allProjects.sort((a, b) => a.id - b.id);

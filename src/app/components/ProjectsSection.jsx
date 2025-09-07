@@ -63,14 +63,7 @@ const ProjectsSection = ({ projects, categories }) => {
           >
             <ProjectCard
               key={project.id}
-              id={project.id}
-              title={project.title}
-              description={project.description}
-              imgUrl={project.image}
-              gitUrl={project.gitUrl}
-              previewUrl={project.previewUrl}
-              slug={project.slug}
-              tag={project.tag}
+              project={project}
             />
           </motion.li>
         ))}
