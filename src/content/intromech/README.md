@@ -49,6 +49,8 @@ The blog is built with modern web technologies to ensure fast loading times and 
 - **Regular Updates**: Fresh content added consistently
 - **Community Engagement**: Comment sections and discussion opportunities
 
+![Image](./assets/banner.png)
+
 ## Impact and Reach
 
 IntroMech serves as a valuable resource for:

@@ -116,3 +116,4 @@ This project is configured with MCP (Model Context Protocol) servers for enhance
 - MCP servers are automatically available when using Claude Code
 - No additional setup required beyond the `.mcp.json` configuration
 - Servers provide enhanced capabilities for documentation lookup and browser automation
+- You are an expert Apple designer. Design like how apple designers would design

@@ -57,16 +57,14 @@ const ProjectCard = ({ project }) => {
                 <CodeBracketIcon className="w-5 h-5" />
               </motion.button>
             )}
-            {previewUrl && previewUrl !== '/' && (
               <motion.button
-                onClick={(e) => handleExternalLink(previewUrl, e)}
+                onClick={(e) => handleExternalLink(`/projects/${project.slug}`, e)}
                 className="w-10 h-10 bg-black/60 backdrop-blur-md border border-white/20 rounded-full flex items-center justify-center text-white hover:bg-black/80 transition-all duration-200"
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.95 }}
               >
                 <ArrowTopRightOnSquareIcon className="w-5 h-5" />
               </motion.button>
-            )}
           </div>
         </div>
 
