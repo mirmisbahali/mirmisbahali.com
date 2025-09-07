@@ -20,6 +20,7 @@ src/
 │   ├── components/
 │   │   ├── AboutSection.jsx
 │   │   ├── AchievementsSection.jsx
+│   │   ├── CategorySearch.jsx
 │   │   ├── EmailSection.jsx
 │   │   ├── Footer.jsx
 │   │   ├── HeroSection.jsx
@@ -55,15 +56,24 @@ The main page (`src/app/page.js`) renders components in this order:
    - Uses `TabButton.jsx` for tab navigation
 5. **ProjectsSection** (`ProjectsSection.jsx`) - Portfolio projects showcase
    - Uses `ProjectCard.jsx` to display individual project cards
-   - Uses `ProjectTag.jsx` for project filtering tags
+   - Uses `ProjectTag.jsx` for project filtering tags (first 3 categories)
+   - Uses `CategorySearch.jsx` for searchable category filtering (4+ categories)
    - Integrates with `src/lib/projects.js` for project data
 6. **EmailSection** (`EmailSection.jsx`) - Contact form with Formspree integration
 7. **Footer** (`Footer.jsx`) - Site footer with social links
 
 **Dynamic Routing:**
 - `/projects/[slug]` - Individual project detail pages (`src/app/projects/[slug]/page.js`)
-- Project content stored in `src/content/` directory
+- Project content stored in `src/content/` directory with markdown files and assets
 - Project data and utilities managed through `src/lib/projects.js`
+- Asset processing automatically copies project assets from `src/content/[project]/assets/` to `public/projects/[project]/`
+- Markdown content is processed with Remark to convert to HTML, with image paths automatically updated
+
+**Category System:**
+- Categories are dynamically extracted from project frontmatter `tag` arrays
+- `getAllCategories()` function in `projects.js` generates categories from all project tags
+- First 3 categories displayed as buttons, remaining categories accessible via search
+- `CategorySearch.jsx` provides searchable dropdown interface for overflow categories
 
 **Styling:**
 - Uses Tailwind CSS with custom color scheme (primary: blue, secondary: sky)
@@ -77,10 +87,13 @@ The main page (`src/app/page.js`) renders components in this order:
 **Dependencies:**
 - Next.js 13 with App Router
 - React 18
-- Tailwind CSS for styling
+- Tailwind CSS with Typography plugin for styling
 - Framer Motion for animations
 - Heroicons for icons
 - React Type Animation and React Animated Numbers for effects
+- Gray Matter for parsing markdown frontmatter
+- Remark for markdown processing and HTML conversion
+- Resend for email functionality
 
 ## MCP Servers
 
@@ -103,3 +116,4 @@ This project is configured with MCP (Model Context Protocol) servers for enhance
 - MCP servers are automatically available when using Claude Code
 - No additional setup required beyond the `.mcp.json` configuration
 - Servers provide enhanced capabilities for documentation lookup and browser automation
+- You are an expert Apple designer. Design like how apple designers would design

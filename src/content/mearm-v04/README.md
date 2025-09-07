@@ -2,7 +2,7 @@
 id: 2
 title: "MeArm v0.4"
 description: "Developed a 3D-printed MeArm v0.4 robotic arm, controlled by an ESP8622 NodeMCU and programmed in Lua."
-image: "https://aurtmqhwnryjpytqiltv.supabase.co/storage/v1/object/public/projects/MeArm/header.jpg"
+image: ""
 tag: ["All", "CAD/CAM/CAE", "Embedded Systems", "3D Printing"]
 gitUrl: "/"
 previewUrl: "https://www.intromech.com/"

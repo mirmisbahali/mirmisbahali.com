@@ -2,7 +2,7 @@
 id: 1
 title: "Intromech"
 description: "IntroMech is a blog where I share accessible insights and practical knowledge on mechanical engineering topics, aimed at helping others learn and grow in the field."
-image: "https://aurtmqhwnryjpytqiltv.supabase.co/storage/v1/object/public/projects/intromech/intromech.jpg"
+image: ./assets/banner.png
 tag: ["All", "Web"]
 gitUrl: "/"
 previewUrl: "https://www.intromech.com/"
@@ -48,6 +48,8 @@ The blog is built with modern web technologies to ensure fast loading times and 
 - **Practical Focus**: Real-world applications and case studies
 - **Regular Updates**: Fresh content added consistently
 - **Community Engagement**: Comment sections and discussion opportunities
+
+![Image](./assets/banner.png)
 
 ## Impact and Reach
 
