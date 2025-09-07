@@ -5,7 +5,7 @@ description: "Developed a 3D-printed MeArm v0.4 robotic arm, controlled by an ES
 image: ./assets/banner.jpg
 tag: ["All", "CAD/CAM/CAE", "Embedded Systems", "3D Printing"]
 gitUrl: "/"
-previewUrl: "https://www.intromech.com/"
+previewUrl: ""
 slug: "mearm-v04"
 ---
 

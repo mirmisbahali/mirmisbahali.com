@@ -274,24 +274,23 @@ const AboutSection = () => {
 
           {/* Apple-style content blocks */}
           <motion.div
-            className="text-center space-y-8"
+            className="text-justify space-y-8"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
             viewport={{ once: true }}
           >
-            <p className="text-xl md:text-2xl text-slate-200 leading-relaxed tracking-wide font-light max-w-4xl mx-auto">
-              I bridge the gap between <strong className="text-white font-medium">traditional engineering</strong> and
-              <strong className="text-primary-400 font-medium"> cutting-edge technology</strong>. With dual specialization in
-              <strong className="text-white font-medium"> Mechanical Engineering Design</strong> and
+            <p className="text-xl md:text-2xl text-slate-200 leading-relaxed tracking-wide font-light  mx-auto">
+              I bridge the gap between traditional engineering and cutting-edge technology. With dual specialization in
+              <strong className="text-primary-400 font-medium"> Mechanical Engineering Design</strong> and
               <strong className="text-secondary-400 font-medium"> Mechatronics & Control Engineering</strong>,
               I bring a unique perspective to every project.
             </p>
 
-            <p className="text-lg md:text-xl text-slate-300 leading-relaxed tracking-wide font-light max-w-3xl mx-auto">
+            <p className="text-lg md:text-xl text-slate-300 leading-relaxed tracking-wide font-light  mx-auto">
               From <strong className="text-primary-400 font-medium">CAD to Code</strong>,
               <strong className="text-secondary-400 font-medium"> Robotics to AI</strong>,
-              <strong className="text-white font-medium"> Embedded Systems to Control Theory</strong> —
+              <strong className="text-primary-400 font-medium"> Embedded Systems to Control Theory</strong> —
               I create intelligent solutions that transform ideas into reality. Whether you need someone to
               design mechanical systems, develop embedded software, implement AI algorithms, or orchestrate
               complete product ecosystems, I deliver innovation at every level.
@@ -299,7 +298,7 @@ const AboutSection = () => {
 
             {/* Key Value Proposition */}
             <motion.div
-              className="grid md:grid-cols-3 gap-6 mt-12 max-w-4xl mx-auto"
+              className="grid md:grid-cols-3 gap-6 mt-12  mx-auto"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.4 }}

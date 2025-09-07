@@ -7,10 +7,10 @@ import Link from "next/link";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 
-const ProjectModal = ({ 
-  isOpen, 
-  onClose, 
-  project 
+const ProjectModal = ({
+  isOpen,
+  onClose,
+  project
 }) => {
   const router = useRouter();
 
@@ -21,7 +21,7 @@ const ProjectModal = ({
     } else {
       document.body.style.overflow = 'unset';
     }
-    
+
     return () => {
       document.body.style.overflow = 'unset';
     };
@@ -34,7 +34,7 @@ const ProjectModal = ({
         onClose();
       }
     };
-    
+
     if (isOpen) {
       document.addEventListener('keydown', handleEsc);
       return () => {
@@ -47,28 +47,28 @@ const ProjectModal = ({
     // Get modal and backdrop elements
     const modalElement = document.getElementById('project-modal');
     const backdropElement = document.getElementById('modal-backdrop');
-    
+
     if (modalElement && backdropElement) {
       // Phase 1: Scale up the modal
       modalElement.style.transform = 'scale(1.05)';
       modalElement.style.transition = 'transform 0.2s ease-out';
-      
+
       setTimeout(() => {
         // Phase 2: Expand to fill screen with border radius animation
         modalElement.style.transform = 'scale(1.2)';
         modalElement.style.borderRadius = '0px';
         modalElement.style.transition = 'all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
-        
+
         // Fade out backdrop
         backdropElement.style.opacity = '0';
         backdropElement.style.backdropFilter = 'blur(0px)';
         backdropElement.style.transition = 'all 0.3s ease-out';
-        
+
         setTimeout(() => {
           // Phase 3: Final expansion and navigate
           modalElement.style.transform = 'scale(1.5)';
           modalElement.style.opacity = '0.8';
-          
+
           setTimeout(() => {
             router.push(`/projects/${project.slug}`);
           }, 150);
@@ -78,9 +78,9 @@ const ProjectModal = ({
   };
 
   if (!project) return null;
-  
+
   // Debug: Check if contentHtml is available
-  console.log('ProjectModal project data:', { 
+  console.log('ProjectModal project data:', {
     title: project.title,
     hasContentHtml: !!project.contentHtml,
     contentHtmlLength: project.contentHtml?.length
@@ -88,12 +88,12 @@ const ProjectModal = ({
 
   const backdropVariants = {
     hidden: { opacity: 0 },
-    visible: { 
+    visible: {
       opacity: 1,
       backdropFilter: "blur(4px)",
       transition: { duration: 0.3 }
     },
-    exit: { 
+    exit: {
       opacity: 0,
       backdropFilter: "blur(0px)",
       transition: { duration: 0.2 }
@@ -101,25 +101,25 @@ const ProjectModal = ({
   };
 
   const modalVariants = {
-    hidden: { 
-      opacity: 0, 
+    hidden: {
+      opacity: 0,
       scale: 0.8,
       y: 50
     },
-    visible: { 
-      opacity: 1, 
+    visible: {
+      opacity: 1,
       scale: 1,
       y: 0,
-      transition: { 
+      transition: {
         duration: 0.3,
         ease: "easeOut"
       }
     },
-    exit: { 
-      opacity: 0, 
+    exit: {
+      opacity: 0,
       scale: 0.8,
       y: 50,
-      transition: { 
+      transition: {
         duration: 0.2,
         ease: "easeIn"
       }
@@ -144,7 +144,7 @@ const ProjectModal = ({
         <motion.div
           id="modal-backdrop"
           className="fixed inset-0 z-[9999] flex items-center justify-center p-4"
-          style={{ 
+          style={{
             position: 'fixed',
             top: 0,
             left: 0,
@@ -184,7 +184,7 @@ const ProjectModal = ({
               >
                 <ArrowsPointingOutIcon className="h-5 w-5 text-white" />
               </motion.button>
-              
+
               {/* Close Button */}
               <motion.button
                 className="p-2 rounded-full bg-black/40 backdrop-blur-md border border-white/30 hover:border-white/50 hover:bg-black/60 transition-all duration-200"
@@ -219,6 +219,40 @@ const ProjectModal = ({
             )}
 
             <div className="p-6 bg-black/20 backdrop-blur-sm">
+              {/* External Links */}
+              <motion.div
+                custom={4}
+                variants={contentVariants}
+                initial="hidden"
+                animate="visible"
+                className="mb-6"
+              >
+                <div className="flex flex-wrap gap-3">
+                  {project.previewUrl && project.previewUrl !== '/' && (
+                    <Link
+                      href={project.previewUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 bg-black/30 backdrop-blur-sm border border-primary-400/50 hover:border-primary-400/80 hover:bg-black/50 text-white font-medium py-2 px-4 rounded-lg transition-all duration-200 hover:scale-105 text-sm"
+                    >
+                      <EyeIcon className="h-4 w-4" />
+                      View Live
+                    </Link>
+                  )}
+                  {project.gitUrl && project.gitUrl !== '/' && (
+                    <Link
+                      href={project.gitUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 bg-black/30 backdrop-blur-sm border border-white/30 hover:border-white/50 hover:bg-black/50 text-white hover:text-white font-medium py-2 px-4 rounded-lg transition-all duration-200 hover:scale-105 text-sm"
+                    >
+                      <CodeBracketIcon className="h-4 w-4" />
+                      View Code
+                    </Link>
+                  )}
+                </div>
+              </motion.div>
+
               {/* Project Title & Description */}
               <motion.div
                 custom={1}
@@ -267,7 +301,7 @@ const ProjectModal = ({
                   className="mb-6"
                 >
                   <div className="bg-black/20 backdrop-blur-sm rounded-lg p-4 border border-white/10">
-                    <div 
+                    <div
                       className="prose prose-invert prose-sm max-w-none
                         prose-headings:text-white prose-headings:font-light prose-headings:tracking-tight
                         prose-h1:text-2xl prose-h2:text-xl prose-h3:text-lg
@@ -286,39 +320,7 @@ const ProjectModal = ({
                 </motion.div>
               )}
 
-              {/* External Links */}
-              <motion.div
-                custom={4}
-                variants={contentVariants}
-                initial="hidden"
-                animate="visible"
-                className="mb-6"
-              >
-                <div className="flex flex-wrap gap-3">
-                  {project.previewUrl && project.previewUrl !== '/' && (
-                    <Link
-                      href={project.previewUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 bg-black/30 backdrop-blur-sm border border-primary-400/50 hover:border-primary-400/80 hover:bg-black/50 text-white font-medium py-2 px-4 rounded-lg transition-all duration-200 hover:scale-105 text-sm"
-                    >
-                      <EyeIcon className="h-4 w-4" />
-                      View Live
-                    </Link>
-                  )}
-                  {project.gitUrl && project.gitUrl !== '/' && (
-                    <Link
-                      href={project.gitUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 bg-black/30 backdrop-blur-sm border border-white/30 hover:border-white/50 hover:bg-black/50 text-white hover:text-white font-medium py-2 px-4 rounded-lg transition-all duration-200 hover:scale-105 text-sm"
-                    >
-                      <CodeBracketIcon className="h-4 w-4" />
-                      View Code
-                    </Link>
-                  )}
-                </div>
-              </motion.div>
+
 
             </div>
           </motion.div>
