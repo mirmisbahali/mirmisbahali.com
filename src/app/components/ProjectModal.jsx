@@ -136,7 +136,15 @@ const ProjectModal = ({
       {isOpen && (
         <motion.div
           id="modal-backdrop"
-          className="fixed inset-0 z-50 flex items-center justify-center p-4"
+          className="fixed inset-0 z-[9999] flex items-center justify-center p-4"
+          style={{ 
+            position: 'fixed',
+            top: 0,
+            left: 0,
+            right: 0,
+            bottom: 0,
+            transform: 'none' // Ensure no inherited transforms
+          }}
           variants={backdropVariants}
           initial="hidden"
           animate="visible"
@@ -145,7 +153,12 @@ const ProjectModal = ({
         >
           <motion.div
             id="project-modal"
-            className="bg-[#181818] rounded-lg max-w-4xl w-full max-h-[90vh] overflow-y-auto relative shadow-2xl border border-slate-700"
+            className="bg-[#181818] rounded-lg max-w-4xl w-full max-h-[90vh] overflow-y-auto relative shadow-2xl border border-slate-700 mx-auto"
+            style={{
+              transform: 'none', // Override any inherited transforms
+              position: 'relative',
+              zIndex: 10000
+            }}
             variants={modalVariants}
             initial="hidden"
             animate="visible"
@@ -175,7 +188,7 @@ const ProjectModal = ({
                   src={project.image}
                   alt={project.title}
                   fill
-                  className="object-cover"
+                  className="object-contain"
                   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                   priority
                 />
