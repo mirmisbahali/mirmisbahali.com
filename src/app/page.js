@@ -5,8 +5,11 @@ import ProjectsSection from "./components/ProjectsSection";
 import EmailSection from "./components/EmailSection";
 import Footer from "./components/Footer";
 import AchievementsSection from "./components/AchievementsSection";
+import { getAllProjects, getAllCategories } from "../lib/projects";
 
 export default function Home() {
+  const projects = getAllProjects();
+  const categories = getAllCategories();
   return (
     <main className="flex min-h-screen flex-col bg-[#121212]">
       <Navbar />
@@ -14,7 +17,7 @@ export default function Home() {
         <HeroSection />
         <AchievementsSection />
         <AboutSection />
-        <ProjectsSection />
+        <ProjectsSection projects={projects} categories={categories} />
         <EmailSection />
       </div>
       <Footer />

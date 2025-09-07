@@ -4,30 +4,7 @@ import ProjectCard from "./ProjectCard";
 import ProjectTag from "./ProjectTag";
 import { motion, useInView } from "framer-motion";
 
-const projectsData = [
-  {
-    id: 2,
-    title: "MeArm v0.4",
-    description: "Developed a 3D-printed MeArm v0.4 robotic arm, controlled by an ESP8622 NodeMCU and programmed in Lua.",
-    image: "https://aurtmqhwnryjpytqiltv.supabase.co/storage/v1/object/public/projects/MeArm/header.jpg",
-    tag: ["All", "CAD/CAM/CAE", "Embedded Systems"],
-    gitUrl: "/",
-    previewUrl: "https://www.intromech.com/",
-  },
-  {
-    id: 1,
-    title: "Intromech",
-    description: "IntroMech is a blog where I share accessible insights and practical knowledge on mechanical engineering topics, aimed at helping others learn and grow in the field.",
-    image: "https://aurtmqhwnryjpytqiltv.supabase.co/storage/v1/object/public/projects/intromech/intromech.jpg",
-    tag: ["All", "Web"],
-    gitUrl: "/",
-    previewUrl: "https://www.intromech.com/",
-  },
-];
-
-const categories = ["All", "Web", "CAD/CAM/CAE", "Embedded Systems"]
-
-const ProjectsSection = () => {
+const ProjectsSection = ({ projects, categories }) => {
   const [tag, setTag] = useState("All");
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true });
@@ -36,7 +13,7 @@ const ProjectsSection = () => {
     setTag(newTag);
   };
 
-  const filteredProjects = projectsData.filter((project) =>
+  const filteredProjects = projects.filter((project) =>
     project.tag.includes(tag)
   );
 
@@ -76,6 +53,7 @@ const ProjectsSection = () => {
               imgUrl={project.image}
               gitUrl={project.gitUrl}
               previewUrl={project.previewUrl}
+              slug={project.slug}
             />
           </motion.li>
         ))}
