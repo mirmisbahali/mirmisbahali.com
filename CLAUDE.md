@@ -64,8 +64,10 @@ The main page (`src/app/page.js`) renders components in this order:
 
 **Dynamic Routing:**
 - `/projects/[slug]` - Individual project detail pages (`src/app/projects/[slug]/page.js`)
-- Project content stored in `src/content/` directory
+- Project content stored in `src/content/` directory with markdown files and assets
 - Project data and utilities managed through `src/lib/projects.js`
+- Asset processing automatically copies project assets from `src/content/[project]/assets/` to `public/projects/[project]/`
+- Markdown content is processed with Remark to convert to HTML, with image paths automatically updated
 
 **Category System:**
 - Categories are dynamically extracted from project frontmatter `tag` arrays
@@ -85,10 +87,13 @@ The main page (`src/app/page.js`) renders components in this order:
 **Dependencies:**
 - Next.js 13 with App Router
 - React 18
-- Tailwind CSS for styling
+- Tailwind CSS with Typography plugin for styling
 - Framer Motion for animations
 - Heroicons for icons
 - React Type Animation and React Animated Numbers for effects
+- Gray Matter for parsing markdown frontmatter
+- Remark for markdown processing and HTML conversion
+- Resend for email functionality
 
 ## MCP Servers
 

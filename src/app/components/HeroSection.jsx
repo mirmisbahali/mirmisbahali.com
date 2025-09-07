@@ -40,9 +40,10 @@ const HeroSection = () => {
           <div>
             <Link
               href="/#contact"
-              className="px-6 inline-block py-3 w-full sm:w-fit rounded-full mr-4 bg-gradient-to-br from-primary-500 to-secondary-500 hover:bg-slate-200 text-white"
+              className="px-6 inline-block py-3 w-full sm:w-fit rounded-full mr-4 bg-primary-500/60 backdrop-blur-md border border-white/20 hover:bg-primary-500 hover:border-white/30 text-white transition-all duration-300 shadow-lg hover:shadow-xl relative overflow-hidden group"
             >
-              Contact me
+              <span className="absolute inset-0 bg-gradient-to-br from-primary-400/30 to-secondary-500/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
+              <span className="relative z-10">Contact me</span>
             </Link>
           </div>
         </motion.div>

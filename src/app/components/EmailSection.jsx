@@ -83,9 +83,10 @@ const EmailSection = () => {
             </div>
             <button
               type="submit"
-              className="bg-primary-500 hover:bg-primary-600 text-white font-medium py-2.5 px-5 rounded-lg w-full"
+              className="bg-primary-500/80 backdrop-blur-md border border-white/20 hover:bg-primary-500 hover:border-white/30 text-white font-medium py-2.5 px-5 rounded-lg w-full transition-all duration-300 shadow-lg hover:shadow-xl relative overflow-hidden group"
             >
-              Send Message
+              <span className="absolute inset-0 bg-gradient-to-r from-primary-400/30 to-secondary-500/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
+              <span className="relative z-10">Send Message</span>
             </button>
           </form>
       </div>

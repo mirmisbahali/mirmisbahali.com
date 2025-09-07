@@ -16,8 +16,8 @@ export default async function Home() {
       <div className="container mt-24 mx-auto px-12 py-4">
         <HeroSection />
         <AchievementsSection />
-        <AboutSection />
         <ProjectsSection projects={projects} categories={categories} />
+        <AboutSection />
         <EmailSection />
       </div>
       <Footer />
