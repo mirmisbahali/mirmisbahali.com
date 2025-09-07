@@ -20,6 +20,7 @@ src/
 │   ├── components/
 │   │   ├── AboutSection.jsx
 │   │   ├── AchievementsSection.jsx
+│   │   ├── CategorySearch.jsx
 │   │   ├── EmailSection.jsx
 │   │   ├── Footer.jsx
 │   │   ├── HeroSection.jsx
@@ -55,7 +56,8 @@ The main page (`src/app/page.js`) renders components in this order:
    - Uses `TabButton.jsx` for tab navigation
 5. **ProjectsSection** (`ProjectsSection.jsx`) - Portfolio projects showcase
    - Uses `ProjectCard.jsx` to display individual project cards
-   - Uses `ProjectTag.jsx` for project filtering tags
+   - Uses `ProjectTag.jsx` for project filtering tags (first 3 categories)
+   - Uses `CategorySearch.jsx` for searchable category filtering (4+ categories)
    - Integrates with `src/lib/projects.js` for project data
 6. **EmailSection** (`EmailSection.jsx`) - Contact form with Formspree integration
 7. **Footer** (`Footer.jsx`) - Site footer with social links
@@ -64,6 +66,12 @@ The main page (`src/app/page.js`) renders components in this order:
 - `/projects/[slug]` - Individual project detail pages (`src/app/projects/[slug]/page.js`)
 - Project content stored in `src/content/` directory
 - Project data and utilities managed through `src/lib/projects.js`
+
+**Category System:**
+- Categories are dynamically extracted from project frontmatter `tag` arrays
+- `getAllCategories()` function in `projects.js` generates categories from all project tags
+- First 3 categories displayed as buttons, remaining categories accessible via search
+- `CategorySearch.jsx` provides searchable dropdown interface for overflow categories
 
 **Styling:**
 - Uses Tailwind CSS with custom color scheme (primary: blue, secondary: sky)

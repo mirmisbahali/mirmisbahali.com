@@ -1,5 +1,6 @@
 import { getAllProjectSlugs, getProjectData } from '../../../lib/projects';
 import Link from 'next/link';
+import Image from 'next/image';
 import { ArrowLeftIcon } from '@heroicons/react/24/outline';
 
 export async function generateStaticParams() {
@@ -47,11 +48,14 @@ export default async function ProjectPage({ params }) {
 
           {/* Project image */}
           {projectData.image && (
-            <div className="mb-8">
-              <img
+            <div className="relative mb-8 h-64 md:h-96 rounded-lg overflow-hidden">
+              <Image
                 src={projectData.image}
                 alt={projectData.title}
-                className="w-full h-64 md:h-96 object-cover rounded-lg"
+                fill
+                className="object-cover"
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 70vw"
+                priority
               />
             </div>
           )}
