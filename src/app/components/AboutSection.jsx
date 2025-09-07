@@ -6,6 +6,162 @@ import { motion } from "framer-motion";
 
 const TAB_DATA = [
   {
+    title: "Education",
+    id: "education",
+    content: (
+      <div className="space-y-8">
+        {/* Strategic Advantage Header */}
+        <div className="text-center mb-8 p-6 bg-gradient-to-r from-primary-500/10 to-secondary-500/10 rounded-2xl border border-primary-500/20">
+          <h3 className="text-lg font-semibold text-white mb-2">Dual Specialization Advantage</h3>
+          <p className="text-slate-300 text-sm">The rare combination that bridges traditional engineering with intelligent systems</p>
+        </div>
+
+        {/* Master's Degree */}
+        <div className="bg-white/5 rounded-2xl p-6 border border-white/10 hover:border-white/20 transition-all duration-300">
+          <div className="flex flex-col lg:flex-row lg:justify-between lg:items-start gap-4 mb-4">
+            <div>
+              <h3 className="text-xl font-semibold text-white tracking-tight mb-1">Master of Engineering (Professional)</h3>
+              <p className="text-slate-400 font-medium">Deakin University, Australia</p>
+            </div>
+            <span className="text-primary-400 font-medium text-sm tracking-wide bg-primary-500/20 px-3 py-1 rounded-full">2023-2025</span>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-6">
+            {/* Mechanical Design Track */}
+            <div className="space-y-3">
+              <div className="flex items-center space-x-3">
+                <div className="w-3 h-3 bg-primary-500 rounded-full"></div>
+                <h4 className="text-base font-semibold text-white">Mechanical Engineering Design</h4>
+              </div>
+              <div className="pl-6 space-y-2">
+                <p className="text-sm text-slate-300">• Advanced CAD/CAE methodologies</p>
+                <p className="text-sm text-slate-300">• Product development lifecycle</p>
+                <p className="text-sm text-slate-300">• Design optimization & validation</p>
+              </div>
+            </div>
+
+            {/* Mechatronics Track */}
+            <div className="space-y-3">
+              <div className="flex items-center space-x-3">
+                <div className="w-3 h-3 bg-secondary-500 rounded-full"></div>
+                <h4 className="text-base font-semibold text-white">Mechatronics & Control Engineering</h4>
+              </div>
+              <div className="pl-6 space-y-2">
+                <p className="text-sm text-slate-300">• Intelligent systems integration</p>
+                <p className="text-sm text-slate-300">• Advanced control theory</p>
+                <p className="text-sm text-slate-300">• Embedded systems design</p>
+              </div>
+            </div>
+          </div>
+
+          {/* Unique Value */}
+          <div className="mt-6 p-4 bg-gradient-to-r from-primary-500/5 to-secondary-500/5 rounded-xl border border-primary-500/10">
+            <p className="text-sm text-slate-300 italic">
+              <strong className="text-white">Strategic Advantage:</strong> This dual specialization creates a unique skill set—
+              the ability to design mechanical systems while simultaneously engineering the intelligence that controls them.
+            </p>
+          </div>
+        </div>
+
+        {/* Bachelor's Degree */}
+        <div className="bg-white/5 rounded-2xl p-6 border border-white/10 hover:border-white/20 transition-all duration-300">
+          <div className="flex flex-col lg:flex-row lg:justify-between lg:items-start gap-4 mb-4">
+            <div>
+              <h3 className="text-xl font-semibold text-white tracking-tight mb-1">Bachelor of Engineering</h3>
+              <p className="text-slate-400 font-medium">Osmania University, India</p>
+            </div>
+            <span className="text-primary-400 font-medium text-sm tracking-wide bg-primary-500/20 px-3 py-1 rounded-full">2018-2022</span>
+          </div>
+
+          <div className="space-y-3">
+            <div className="flex items-center space-x-3">
+              <div className="w-3 h-3 bg-green-500 rounded-full"></div>
+              <h4 className="text-base font-semibold text-white">Mechanical Engineering</h4>
+            </div>
+            <div className="pl-6 space-y-2">
+              <p className="text-sm text-slate-300">• Strong foundation in engineering fundamentals</p>
+              <p className="text-sm text-slate-300">• Manufacturing processes & materials science</p>
+              <p className="text-sm text-slate-300">• Thermodynamics, fluid mechanics, & mechanics</p>
+              <p className="text-sm text-slate-300">• Early exposure to programming & automation</p>
+            </div>
+          </div>
+        </div>
+
+        {/* Impact Statement */}
+        <div className="text-center">
+          <p className="text-slate-300 text-sm max-w-3xl mx-auto">
+            This educational journey represents a deliberate progression from <strong className="text-white">traditional mechanical engineering</strong> to <strong className="text-primary-400">intelligent systems integration</strong>, positioning me uniquely to tackle
+            challenges that require both <strong className="text-secondary-400">hardware expertise</strong> and
+            <strong className="text-white"> software intelligence</strong>.
+          </p>
+        </div>
+      </div>
+    ),
+  },
+  {
+    title: "Certifications",
+    id: "certifications",
+    content: (
+      <div className="space-y-6">
+        <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-3 p-4 bg-white/5 rounded-lg border border-white/10 hover:border-white/20 transition-all duration-300">
+          <span className="text-white font-medium tracking-wide">Certified SolidWorks Professional (CSWP)</span>
+          <a
+            href="https://cv.virtualtester.com/qr/?b=SLDWRKS&i=C-6CA572W9HP"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-primary-400 hover:text-primary-300 font-mono text-sm tracking-wider underline underline-offset-4 decoration-primary-400/30 hover:decoration-primary-300/60 transition-all duration-200"
+          >
+            C-6CA572W9HP
+          </a>
+        </div>
+        <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-3 p-4 bg-white/5 rounded-lg border border-white/10 hover:border-white/20 transition-all duration-300">
+          <span className="text-white font-medium tracking-wide">CSWPA Advanced Sheet Metal (CSWPA-SM)</span>
+          <a
+            href="https://cv.virtualtester.com/qr/?b=SLDWRKS&i=C-5DF7S3VQTJ"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-primary-400 hover:text-primary-300 font-mono text-sm tracking-wider underline underline-offset-4 decoration-primary-400/30 hover:decoration-primary-300/60 transition-all duration-200"
+          >
+            C-5DF7S3VQTJ
+          </a>
+        </div>
+        <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-3 p-4 bg-white/5 rounded-lg border border-white/10 hover:border-white/20 transition-all duration-300">
+          <span className="text-white font-medium tracking-wide">CSWP Advanced Weldments (CSWPA-WD)</span>
+          <a
+            href="https://cv.virtualtester.com/qr/?b=SLDWRKS&i=C-ZMERB2FJUX"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-primary-400 hover:text-primary-300 font-mono text-sm tracking-wider underline underline-offset-4 decoration-primary-400/30 hover:decoration-primary-300/60 transition-all duration-200"
+          >
+            C-ZMERB2FJUX
+          </a>
+        </div>
+        <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-3 p-4 bg-white/5 rounded-lg border border-white/10 hover:border-white/20 transition-all duration-300">
+          <span className="text-white font-medium tracking-wide">CSWP Advanced Drawing Tools (CSWPA-DT)</span>
+          <a
+            href="https://cv.virtualtester.com/qr/?b=SLDWRKS&i=C-VBDYGQKHU6"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-primary-400 hover:text-primary-300 font-mono text-sm tracking-wider underline underline-offset-4 decoration-primary-400/30 hover:decoration-primary-300/60 transition-all duration-200"
+          >
+            C-VBDYGQKHU6
+          </a>
+        </div>
+        <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-3 p-4 bg-white/5 rounded-lg border border-white/10 hover:border-white/20 transition-all duration-300">
+          <span className="text-white font-medium tracking-wide">Certified SolidWorks Associate (CSWA)</span>
+          <a
+            href="https://cv.virtualtester.com/qr/?b=SLDWRKS&i=C-H7WVD3Z82P"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-primary-400 hover:text-primary-300 font-mono text-sm tracking-wider underline underline-offset-4 decoration-primary-400/30 hover:decoration-primary-300/60 transition-all duration-200"
+          >
+            C-H7WVD3Z82P
+          </a>
+        </div>
+      </div>
+    ),
+  },
+  {
     title: "Skills",
     id: "skills",
     content: (
@@ -75,167 +231,11 @@ const TAB_DATA = [
         </div>
       </div>
     ),
-  },
-  {
-    title: "Education",
-    id: "education",
-    content: (
-      <div className="space-y-8">
-        {/* Strategic Advantage Header */}
-        <div className="text-center mb-8 p-6 bg-gradient-to-r from-primary-500/10 to-secondary-500/10 rounded-2xl border border-primary-500/20">
-          <h3 className="text-lg font-semibold text-white mb-2">Dual Specialization Advantage</h3>
-          <p className="text-slate-300 text-sm">The rare combination that bridges traditional engineering with intelligent systems</p>
-        </div>
-
-        {/* Master's Degree */}
-        <div className="bg-white/5 rounded-2xl p-6 border border-white/10 hover:border-white/20 transition-all duration-300">
-          <div className="flex flex-col lg:flex-row lg:justify-between lg:items-start gap-4 mb-4">
-            <div>
-              <h3 className="text-xl font-semibold text-white tracking-tight mb-1">Master of Engineering (Professional)</h3>
-              <p className="text-slate-400 font-medium">Deakin University, Australia</p>
-            </div>
-            <span className="text-primary-400 font-medium text-sm tracking-wide bg-primary-500/20 px-3 py-1 rounded-full">2023-2025</span>
-          </div>
-          
-          <div className="grid md:grid-cols-2 gap-6">
-            {/* Mechanical Design Track */}
-            <div className="space-y-3">
-              <div className="flex items-center space-x-3">
-                <div className="w-3 h-3 bg-primary-500 rounded-full"></div>
-                <h4 className="text-base font-semibold text-white">Mechanical Engineering Design</h4>
-              </div>
-              <div className="pl-6 space-y-2">
-                <p className="text-sm text-slate-300">• Advanced CAD/CAE methodologies</p>
-                <p className="text-sm text-slate-300">• Product development lifecycle</p>
-                <p className="text-sm text-slate-300">• Design optimization & validation</p>
-              </div>
-            </div>
-
-            {/* Mechatronics Track */}
-            <div className="space-y-3">
-              <div className="flex items-center space-x-3">
-                <div className="w-3 h-3 bg-secondary-500 rounded-full"></div>
-                <h4 className="text-base font-semibold text-white">Mechatronics & Control Engineering</h4>
-              </div>
-              <div className="pl-6 space-y-2">
-                <p className="text-sm text-slate-300">• Intelligent systems integration</p>
-                <p className="text-sm text-slate-300">• Advanced control theory</p>
-                <p className="text-sm text-slate-300">• Embedded systems design</p>
-              </div>
-            </div>
-          </div>
-
-          {/* Unique Value */}
-          <div className="mt-6 p-4 bg-gradient-to-r from-primary-500/5 to-secondary-500/5 rounded-xl border border-primary-500/10">
-            <p className="text-sm text-slate-300 italic">
-              <strong className="text-white">Strategic Advantage:</strong> This dual specialization creates a unique skill set—
-              the ability to design mechanical systems while simultaneously engineering the intelligence that controls them.
-            </p>
-          </div>
-        </div>
-
-        {/* Bachelor's Degree */}
-        <div className="bg-white/5 rounded-2xl p-6 border border-white/10 hover:border-white/20 transition-all duration-300">
-          <div className="flex flex-col lg:flex-row lg:justify-between lg:items-start gap-4 mb-4">
-            <div>
-              <h3 className="text-xl font-semibold text-white tracking-tight mb-1">Bachelor of Engineering</h3>
-              <p className="text-slate-400 font-medium">Osmania University, India</p>
-            </div>
-            <span className="text-primary-400 font-medium text-sm tracking-wide bg-primary-500/20 px-3 py-1 rounded-full">2018-2022</span>
-          </div>
-          
-          <div className="space-y-3">
-            <div className="flex items-center space-x-3">
-              <div className="w-3 h-3 bg-green-500 rounded-full"></div>
-              <h4 className="text-base font-semibold text-white">Mechanical Engineering</h4>
-            </div>
-            <div className="pl-6 space-y-2">
-              <p className="text-sm text-slate-300">• Strong foundation in engineering fundamentals</p>
-              <p className="text-sm text-slate-300">• Manufacturing processes & materials science</p>
-              <p className="text-sm text-slate-300">• Thermodynamics, fluid mechanics, & mechanics</p>
-              <p className="text-sm text-slate-300">• Early exposure to programming & automation</p>
-            </div>
-          </div>
-        </div>
-
-        {/* Impact Statement */}
-        <div className="text-center">
-          <p className="text-slate-300 text-sm max-w-3xl mx-auto">
-            This educational journey represents a deliberate progression from <strong className="text-white">traditional mechanical engineering</strong> to <strong className="text-primary-400">intelligent systems integration</strong>, positioning me uniquely to tackle 
-            challenges that require both <strong className="text-secondary-400">hardware expertise</strong> and 
-            <strong className="text-white"> software intelligence</strong>.
-          </p>
-        </div>
-      </div>
-    ),
-  },
-  {
-    title: "Certifications",
-    id: "certifications",
-    content: (
-      <div className="space-y-6">
-        <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-3 p-4 bg-white/5 rounded-lg border border-white/10 hover:border-white/20 transition-all duration-300">
-          <span className="text-white font-medium tracking-wide">Certified SolidWorks Professional (CSWP)</span>
-          <a 
-            href="https://cv.virtualtester.com/qr/?b=SLDWRKS&i=C-6CA572W9HP" 
-            target="_blank" 
-            rel="noopener noreferrer"
-            className="text-primary-400 hover:text-primary-300 font-mono text-sm tracking-wider underline underline-offset-4 decoration-primary-400/30 hover:decoration-primary-300/60 transition-all duration-200"
-          >
-            C-6CA572W9HP
-          </a>
-        </div>
-        <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-3 p-4 bg-white/5 rounded-lg border border-white/10 hover:border-white/20 transition-all duration-300">
-          <span className="text-white font-medium tracking-wide">CSWPA Advanced Sheet Metal (CSWPA-SM)</span>
-          <a 
-            href="https://cv.virtualtester.com/qr/?b=SLDWRKS&i=C-5DF7S3VQTJ" 
-            target="_blank" 
-            rel="noopener noreferrer"
-            className="text-primary-400 hover:text-primary-300 font-mono text-sm tracking-wider underline underline-offset-4 decoration-primary-400/30 hover:decoration-primary-300/60 transition-all duration-200"
-          >
-            C-5DF7S3VQTJ
-          </a>
-        </div>
-        <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-3 p-4 bg-white/5 rounded-lg border border-white/10 hover:border-white/20 transition-all duration-300">
-          <span className="text-white font-medium tracking-wide">CSWP Advanced Weldments (CSWPA-WD)</span>
-          <a 
-            href="https://cv.virtualtester.com/qr/?b=SLDWRKS&i=C-ZMERB2FJUX" 
-            target="_blank" 
-            rel="noopener noreferrer"
-            className="text-primary-400 hover:text-primary-300 font-mono text-sm tracking-wider underline underline-offset-4 decoration-primary-400/30 hover:decoration-primary-300/60 transition-all duration-200"
-          >
-            C-ZMERB2FJUX
-          </a>
-        </div>
-        <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-3 p-4 bg-white/5 rounded-lg border border-white/10 hover:border-white/20 transition-all duration-300">
-          <span className="text-white font-medium tracking-wide">CSWP Advanced Drawing Tools (CSWPA-DT)</span>
-          <a 
-            href="https://cv.virtualtester.com/qr/?b=SLDWRKS&i=C-VBDYGQKHU6" 
-            target="_blank" 
-            rel="noopener noreferrer"
-            className="text-primary-400 hover:text-primary-300 font-mono text-sm tracking-wider underline underline-offset-4 decoration-primary-400/30 hover:decoration-primary-300/60 transition-all duration-200"
-          >
-            C-VBDYGQKHU6
-          </a>
-        </div>
-        <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-3 p-4 bg-white/5 rounded-lg border border-white/10 hover:border-white/20 transition-all duration-300">
-          <span className="text-white font-medium tracking-wide">Certified SolidWorks Associate (CSWA)</span>
-          <a 
-            href="https://cv.virtualtester.com/qr/?b=SLDWRKS&i=C-H7WVD3Z82P" 
-            target="_blank" 
-            rel="noopener noreferrer"
-            className="text-primary-400 hover:text-primary-300 font-mono text-sm tracking-wider underline underline-offset-4 decoration-primary-400/30 hover:decoration-primary-300/60 transition-all duration-200"
-          >
-            C-H7WVD3Z82P
-          </a>
-        </div>
-      </div>
-    ),
-  },
+  }
 ];
 
 const AboutSection = () => {
-  const [tab, setTab] = useState("skills");
+  const [tab, setTab] = useState("education");
   const [isPending, startTransition] = useTransition();
 
   const handleTabChange = (id) => {
@@ -271,9 +271,9 @@ const AboutSection = () => {
               </h2>
             </motion.div>
           </div>
-          
+
           {/* Apple-style content blocks */}
-          <motion.div 
+          <motion.div
             className="text-center space-y-8"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -281,24 +281,24 @@ const AboutSection = () => {
             viewport={{ once: true }}
           >
             <p className="text-xl md:text-2xl text-slate-200 leading-relaxed tracking-wide font-light max-w-4xl mx-auto">
-              I bridge the gap between <strong className="text-white font-medium">traditional engineering</strong> and 
-              <strong className="text-primary-400 font-medium"> cutting-edge technology</strong>. With dual specialization in 
-              <strong className="text-white font-medium"> Mechanical Engineering Design</strong> and 
-              <strong className="text-secondary-400 font-medium"> Mechatronics & Control Engineering</strong>, 
+              I bridge the gap between <strong className="text-white font-medium">traditional engineering</strong> and
+              <strong className="text-primary-400 font-medium"> cutting-edge technology</strong>. With dual specialization in
+              <strong className="text-white font-medium"> Mechanical Engineering Design</strong> and
+              <strong className="text-secondary-400 font-medium"> Mechatronics & Control Engineering</strong>,
               I bring a unique perspective to every project.
             </p>
-            
+
             <p className="text-lg md:text-xl text-slate-300 leading-relaxed tracking-wide font-light max-w-3xl mx-auto">
-              From <strong className="text-primary-400 font-medium">CAD to Code</strong>, 
-              <strong className="text-secondary-400 font-medium"> Robotics to AI</strong>, 
+              From <strong className="text-primary-400 font-medium">CAD to Code</strong>,
+              <strong className="text-secondary-400 font-medium"> Robotics to AI</strong>,
               <strong className="text-white font-medium"> Embedded Systems to Control Theory</strong> —
-              I create intelligent solutions that transform ideas into reality. Whether you need someone to 
-              design mechanical systems, develop embedded software, implement AI algorithms, or orchestrate 
+              I create intelligent solutions that transform ideas into reality. Whether you need someone to
+              design mechanical systems, develop embedded software, implement AI algorithms, or orchestrate
               complete product ecosystems, I deliver innovation at every level.
             </p>
 
             {/* Key Value Proposition */}
-            <motion.div 
+            <motion.div
               className="grid md:grid-cols-3 gap-6 mt-12 max-w-4xl mx-auto"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -314,7 +314,7 @@ const AboutSection = () => {
                 <h3 className="text-lg font-semibold text-white mb-2">Design & Analysis</h3>
                 <p className="text-sm text-slate-300">From concept to CAE validation</p>
               </div>
-              
+
               <div className="bg-white/5 backdrop-blur-md rounded-2xl p-6 border border-white/10 hover:border-white/20 transition-all duration-300">
                 <div className="w-12 h-12 bg-secondary-500/20 rounded-xl flex items-center justify-center mb-4 mx-auto">
                   <svg className="w-6 h-6 text-secondary-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -324,7 +324,7 @@ const AboutSection = () => {
                 <h3 className="text-lg font-semibold text-white mb-2">Smart Systems</h3>
                 <p className="text-sm text-slate-300">AI, robotics & control integration</p>
               </div>
-              
+
               <div className="bg-white/5 backdrop-blur-md rounded-2xl p-6 border border-white/10 hover:border-white/20 transition-all duration-300">
                 <div className="w-12 h-12 bg-green-500/20 rounded-xl flex items-center justify-center mb-4 mx-auto">
                   <svg className="w-6 h-6 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -337,7 +337,7 @@ const AboutSection = () => {
             </motion.div>
           </motion.div>
           {/* Apple-style tab system */}
-          <motion.div 
+          <motion.div
             className="mt-12"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -346,12 +346,6 @@ const AboutSection = () => {
           >
             {/* Apple's segmented control style */}
             <div className="flex flex-wrap gap-2 mb-8">
-              <TabButton
-                selectTab={() => handleTabChange("skills")}
-                active={tab === "skills"}
-              >
-                Skills
-              </TabButton>
               <TabButton
                 selectTab={() => handleTabChange("education")}
                 active={tab === "education"}
@@ -364,10 +358,16 @@ const AboutSection = () => {
               >
                 Certifications
               </TabButton>
+              <TabButton
+                selectTab={() => handleTabChange("skills")}
+                active={tab === "skills"}
+              >
+                Skills
+              </TabButton>
             </div>
 
             {/* Apple-style content container */}
-            <motion.div 
+            <motion.div
               key={tab}
               className="min-h-[300px] lg:min-h-[350px] p-6 md:p-8 bg-white/5 backdrop-blur-md rounded-2xl border border-white/10 shadow-2xl"
               initial={{ opacity: 0, y: 20 }}

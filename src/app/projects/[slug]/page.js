@@ -1,18 +1,19 @@
 "use client";
-import { useState, useEffect } from 'react';
+import { useState, useEffect, use } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { ArrowLeftIcon } from '@heroicons/react/24/outline';
 import { motion } from 'framer-motion';
 
 export default function ProjectPage({ params }) {
+  const resolvedParams = use(params);
   const [projectData, setProjectData] = useState(null);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     async function fetchProject() {
       try {
-        const response = await fetch(`/api/projects/${params.slug}`);
+        const response = await fetch(`/api/projects/${resolvedParams.slug}`);
         if (!response.ok) {
           throw new Error('Project not found');
         }
@@ -26,7 +27,7 @@ export default function ProjectPage({ params }) {
     }
 
     fetchProject();
-  }, [params.slug]);
+  }, [resolvedParams.slug]);
 
   if (loading) {
     return (
