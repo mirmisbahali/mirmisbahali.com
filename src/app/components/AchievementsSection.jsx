@@ -34,10 +34,10 @@ const AchievementsSection = () => {
   return (
     <div className="relative">
       {/* Apple-style refined glassmorphism container */}
-      <div className="bg-black/40 backdrop-blur-xl border border-white/10 hover:border-white/15 transition-all duration-500 rounded-3xl py-12 px-8 md:px-16 lg:px-20 shadow-2xl hover:shadow-3xl relative overflow-hidden group">
+      <div className="bg-white/60 dark:bg-black/40 backdrop-blur-xl border border-black/8 dark:border-white/10 hover:border-black/12 dark:hover:border-white/15 transition-all duration-500 rounded-3xl py-12 px-8 md:px-16 lg:px-20 shadow-lg dark:shadow-2xl hover:shadow-xl dark:hover:shadow-3xl relative overflow-hidden group">
         {/* Apple's signature subtle gradient overlay */}
         <div className="absolute inset-0 bg-gradient-to-r from-primary-500/5 via-transparent to-secondary-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-        
+
         {/* Content grid with Apple spacing */}
         <div className="relative z-10 grid grid-cols-2 lg:grid-cols-4 gap-8 md:gap-12">
           {achievementsList.map((achievement, index) => {
@@ -54,13 +54,13 @@ const AchievementsSection = () => {
                     {achievement.prefix}
                   </span>
                 )}
-                
-                <h3 className="text-4xl md:text-5xl lg:text-6xl font-light text-white tracking-tight">
+
+                <h3 className="text-4xl md:text-5xl lg:text-6xl font-light text-[#1d1d1f] dark:text-white tracking-tight">
                   <AnimatedNumbers
                     includeComma
                     animateToNumber={parseInt(achievement.value)}
                     locale="en-US"
-                    className="text-white font-light"
+                    className="text-[#1d1d1f] dark:text-white font-light"
                     configs={(_, index) => {
                       return {
                         mass: 1,
@@ -78,12 +78,12 @@ const AchievementsSection = () => {
                   </span>
                 )}
               </div>
-              
+
               {/* Apple-style metric label */}
-              <p className="text-sm md:text-base font-medium text-slate-300 group-hover/item:text-slate-200 transition-colors duration-300 tracking-wide">
+              <p className="text-sm md:text-base font-medium text-[#6e6e73] dark:text-slate-300 group-hover/item:text-[#3d3d3d] dark:group-hover/item:text-slate-200 transition-colors duration-300 tracking-wide">
                 {achievement.metric}
               </p>
-              
+
               {/* Apple's refined underline indicator */}
               <div className="mt-3 w-8 h-px bg-gradient-to-r from-transparent via-primary-500/60 to-transparent opacity-40 group-hover/item:opacity-80 group-hover/item:w-12 transition-all duration-300" />
             </div>

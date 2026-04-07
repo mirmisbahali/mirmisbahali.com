@@ -21,9 +21,9 @@ const ProjectsSection = ({ projects, categories }) => {
   // Apple's signature easing curves and motion design
   const cardVariants = {
     initial: { y: 60, opacity: 0, scale: 0.9 },
-    animate: { 
-      y: 0, 
-      opacity: 1, 
+    animate: {
+      y: 0,
+      opacity: 1,
       scale: 1,
       transition: {
         type: "spring",
@@ -51,10 +51,10 @@ const ProjectsSection = ({ projects, categories }) => {
   return (
     <section id="projects" className="py-12 md:py-16 lg:py-20">
       <div className="text-center mb-10 md:mb-12 lg:mb-16 px-4">
-        <h2 className="text-3xl md:text-5xl lg:text-6xl font-semibold text-transparent bg-clip-text bg-gradient-to-r from-white via-white to-white/70 tracking-tight leading-none mb-4">
+        <h2 className="text-3xl md:text-5xl lg:text-6xl font-semibold text-transparent bg-clip-text bg-gradient-to-r from-[#1d1d1f] via-[#1d1d1f] to-[#6e6e73] dark:from-white dark:via-white dark:to-white/70 tracking-tight leading-none mb-4">
           My Projects
         </h2>
-        <p className="text-lg md:text-xl text-slate-400 font-light tracking-wide max-w-2xl mx-auto leading-relaxed">
+        <p className="text-lg md:text-xl text-[#6e6e73] dark:text-slate-400 font-light tracking-wide max-w-2xl mx-auto leading-relaxed">
           Crafting products with precision and purpose
         </p>
       </div>
@@ -69,7 +69,7 @@ const ProjectsSection = ({ projects, categories }) => {
             isSelected={tag === category}
           />
         ))}
-        
+
         {/* Search component for additional categories */}
         {searchableCategories.length > 0 && (
           <CategorySearch
@@ -81,8 +81,8 @@ const ProjectsSection = ({ projects, categories }) => {
       </div>
 
       {/* Projects Grid with Apple's responsive system */}
-      <motion.ul 
-        ref={ref} 
+      <motion.ul
+        ref={ref}
         className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 lg:gap-10 px-4 md:px-6 lg:px-8"
         variants={containerVariants}
         initial="initial"
@@ -90,9 +90,9 @@ const ProjectsSection = ({ projects, categories }) => {
       >
         {filteredProjects.map((project, index) => (
           <motion.li
-            key={`${project.id}-${tag}`} // Key includes tag to trigger re-animation on filter
+            key={`${project.id}-${tag}`}
             variants={cardVariants}
-            layout // Apple-style layout animations
+            layout
             layoutId={`project-${project.id}`}
           >
             <ProjectCard

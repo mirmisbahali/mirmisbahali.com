@@ -4,20 +4,21 @@ import React, { useState, useEffect } from "react";
 import NavLink from "./NavLink";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/solid";
 import MenuOverlay from "./MenuOverlay";
+import ThemeToggle from "./ThemeToggle";
 import { motion, AnimatePresence } from "framer-motion";
 
 const navLinks = [
   {
     title: "Projects",
-    path: "#projects",
+    path: "/#projects",
   },
   {
     title: "About",
-    path: "#about",
+    path: "/#about",
   },
   {
     title: "Contact",
-    path: "#contact",
+    path: "/#contact",
   },
 ];
 
@@ -46,14 +47,14 @@ const Navbar = () => {
       {/* Apple's floating nav container */}
       <div className="max-w-7xl mx-auto px-6 md:px-8">
         <div className={`relative rounded-2xl transition-all duration-500 ${isScrolled
-            ? 'bg-black/80 backdrop-blur-xl border border-white/10 shadow-2xl'
-            : 'bg-black/40 backdrop-blur-md border border-white/5 shadow-lg'
+            ? 'bg-white/80 dark:bg-black/80 backdrop-blur-xl border border-black/10 dark:border-white/10 shadow-2xl'
+            : 'bg-white/40 dark:bg-black/40 backdrop-blur-md border border-black/5 dark:border-white/5 shadow-lg'
           }`}>
           <div className="flex items-center justify-between px-6 py-4 md:px-8 md:py-5">
             {/* Logo with Apple typography */}
             <Link
               href={"/"}
-              className="text-xl md:text-2xl lg:text-3xl text-white font-semibold tracking-tight hover:text-white/90 transition-colors duration-200"
+              className="text-xl md:text-2xl lg:text-3xl text-[#1d1d1f] dark:text-white font-semibold tracking-tight hover:text-[#1d1d1f]/80 dark:hover:text-white/90 transition-colors duration-200"
             >
               MISBAH
             </Link>
@@ -67,13 +68,17 @@ const Navbar = () => {
                   </li>
                 ))}
               </ul>
+              <div className="ml-3">
+                <ThemeToggle />
+              </div>
             </div>
 
-            {/* Apple-style Mobile Menu Button */}
-            <div className="md:hidden">
+            {/* Mobile: theme toggle + hamburger */}
+            <div className="md:hidden flex items-center gap-2">
+              <ThemeToggle />
               <motion.button
                 onClick={() => setNavbarOpen(!navbarOpen)}
-                className="relative w-10 h-10 rounded-full bg-white/10 backdrop-blur-md border border-white/20 flex items-center justify-center text-white hover:bg-white/20 transition-all duration-200"
+                className="relative w-10 h-10 rounded-full bg-black/[0.06] dark:bg-white/10 backdrop-blur-md border border-black/10 dark:border-white/20 flex items-center justify-center text-[#1d1d1f] dark:text-white hover:bg-black/10 dark:hover:bg-white/20 transition-all duration-200"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >

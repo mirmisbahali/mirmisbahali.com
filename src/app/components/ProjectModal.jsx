@@ -44,28 +44,23 @@ const ProjectModal = ({
   }, [isOpen, onClose]);
 
   const handleFullscreen = async () => {
-    // Get modal and backdrop elements
     const modalElement = document.getElementById('project-modal');
     const backdropElement = document.getElementById('modal-backdrop');
 
     if (modalElement && backdropElement) {
-      // Phase 1: Scale up the modal
       modalElement.style.transform = 'scale(1.05)';
       modalElement.style.transition = 'transform 0.2s ease-out';
 
       setTimeout(() => {
-        // Phase 2: Expand to fill screen with border radius animation
         modalElement.style.transform = 'scale(1.2)';
         modalElement.style.borderRadius = '0px';
         modalElement.style.transition = 'all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
 
-        // Fade out backdrop
         backdropElement.style.opacity = '0';
         backdropElement.style.backdropFilter = 'blur(0px)';
         backdropElement.style.transition = 'all 0.3s ease-out';
 
         setTimeout(() => {
-          // Phase 3: Final expansion and navigate
           modalElement.style.transform = 'scale(1.5)';
           modalElement.style.opacity = '0.8';
 
@@ -79,7 +74,6 @@ const ProjectModal = ({
 
   if (!project) return null;
 
-  // Debug: Check if contentHtml is available
   console.log('ProjectModal project data:', {
     title: project.title,
     hasContentHtml: !!project.contentHtml,
@@ -101,28 +95,18 @@ const ProjectModal = ({
   };
 
   const modalVariants = {
-    hidden: {
-      opacity: 0,
-      scale: 0.8,
-      y: 50
-    },
+    hidden: { opacity: 0, scale: 0.8, y: 50 },
     visible: {
       opacity: 1,
       scale: 1,
       y: 0,
-      transition: {
-        duration: 0.3,
-        ease: "easeOut"
-      }
+      transition: { duration: 0.3, ease: "easeOut" }
     },
     exit: {
       opacity: 0,
       scale: 0.8,
       y: 50,
-      transition: {
-        duration: 0.2,
-        ease: "easeIn"
-      }
+      transition: { duration: 0.2, ease: "easeIn" }
     }
   };
 
@@ -131,10 +115,7 @@ const ProjectModal = ({
     visible: (i) => ({
       opacity: 1,
       y: 0,
-      transition: {
-        delay: i * 0.1,
-        duration: 0.3
-      }
+      transition: { delay: i * 0.1, duration: 0.3 }
     })
   };
 
@@ -143,15 +124,8 @@ const ProjectModal = ({
       {isOpen && (
         <motion.div
           id="modal-backdrop"
-          className="fixed inset-0 z-[9999] flex items-center justify-center p-4"
-          style={{
-            position: 'fixed',
-            top: 0,
-            left: 0,
-            right: 0,
-            bottom: 0,
-            transform: 'none' // Ensure no inherited transforms
-          }}
+          className="fixed inset-0 z-[9999] flex items-center justify-center p-4 bg-black/40 dark:bg-black/60"
+          style={{ position: 'fixed', top: 0, left: 0, right: 0, bottom: 0, transform: 'none' }}
           variants={backdropVariants}
           initial="hidden"
           animate="visible"
@@ -160,12 +134,8 @@ const ProjectModal = ({
         >
           <motion.div
             id="project-modal"
-            className="bg-black/60 backdrop-blur-md border border-white/20 hover:border-white/30 transition-all duration-300 rounded-xl max-w-4xl w-full max-h-[90vh] overflow-y-auto relative shadow-2xl mx-auto"
-            style={{
-              transform: 'none', // Override any inherited transforms
-              position: 'relative',
-              zIndex: 10000
-            }}
+            className="bg-white/90 dark:bg-black/60 backdrop-blur-md border border-black/10 dark:border-white/20 hover:border-black/15 dark:hover:border-white/30 transition-all duration-300 rounded-xl max-w-4xl w-full max-h-[90vh] overflow-y-auto relative shadow-2xl mx-auto"
+            style={{ transform: 'none', position: 'relative', zIndex: 10000 }}
             variants={modalVariants}
             initial="hidden"
             animate="visible"
@@ -174,26 +144,24 @@ const ProjectModal = ({
           >
             {/* Top Action Bar */}
             <div className="absolute top-4 right-4 z-10 flex gap-2">
-              {/* View Fullscreen Button */}
               <motion.button
                 onClick={handleFullscreen}
-                className="p-2 rounded-full bg-black/40 backdrop-blur-md border border-white/30 hover:border-white/50 hover:bg-black/60 transition-all duration-200"
+                className="p-2 rounded-full bg-black/[0.06] dark:bg-black/40 backdrop-blur-md border border-black/15 dark:border-white/30 hover:border-black/25 dark:hover:border-white/50 hover:bg-black/10 dark:hover:bg-black/60 transition-all duration-200"
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.9 }}
                 title="View Fullscreen"
               >
-                <ArrowsPointingOutIcon className="h-5 w-5 text-white" />
+                <ArrowsPointingOutIcon className="h-5 w-5 text-[#1d1d1f] dark:text-white" />
               </motion.button>
 
-              {/* Close Button */}
               <motion.button
-                className="p-2 rounded-full bg-black/40 backdrop-blur-md border border-white/30 hover:border-white/50 hover:bg-black/60 transition-all duration-200"
+                className="p-2 rounded-full bg-black/[0.06] dark:bg-black/40 backdrop-blur-md border border-black/15 dark:border-white/30 hover:border-black/25 dark:hover:border-white/50 hover:bg-black/10 dark:hover:bg-black/60 transition-all duration-200"
                 onClick={onClose}
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.9 }}
                 title="Close"
               >
-                <XMarkIcon className="h-5 w-5 text-white" />
+                <XMarkIcon className="h-5 w-5 text-[#1d1d1f] dark:text-white" />
               </motion.button>
             </div>
 
@@ -214,11 +182,11 @@ const ProjectModal = ({
                   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                   priority
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-40"></div>
+                <div className="absolute inset-0 bg-gradient-to-t from-black/10 dark:from-black/20 to-transparent opacity-40"></div>
               </motion.div>
             )}
 
-            <div className="p-6 bg-black/20 backdrop-blur-sm">
+            <div className="p-6 bg-white/50 dark:bg-black/20 backdrop-blur-sm">
               {/* External Links */}
               <motion.div
                 custom={4}
@@ -233,7 +201,7 @@ const ProjectModal = ({
                       href={project.previewUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 bg-black/30 backdrop-blur-sm border border-primary-400/50 hover:border-primary-400/80 hover:bg-black/50 text-white font-medium py-2 px-4 rounded-lg transition-all duration-200 hover:scale-105 text-sm"
+                      className="inline-flex items-center gap-2 bg-primary-500/10 dark:bg-black/30 backdrop-blur-sm border border-primary-500/40 dark:border-primary-400/50 hover:border-primary-500/70 dark:hover:border-primary-400/80 hover:bg-primary-500/20 dark:hover:bg-black/50 text-primary-600 dark:text-white font-medium py-2 px-4 rounded-lg transition-all duration-200 hover:scale-105 text-sm"
                     >
                       <EyeIcon className="h-4 w-4" />
                       View Live
@@ -244,7 +212,7 @@ const ProjectModal = ({
                       href={project.gitUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 bg-black/30 backdrop-blur-sm border border-white/30 hover:border-white/50 hover:bg-black/50 text-white hover:text-white font-medium py-2 px-4 rounded-lg transition-all duration-200 hover:scale-105 text-sm"
+                      className="inline-flex items-center gap-2 bg-black/[0.04] dark:bg-black/30 backdrop-blur-sm border border-black/15 dark:border-white/30 hover:border-black/25 dark:hover:border-white/50 hover:bg-black/[0.08] dark:hover:bg-black/50 text-[#1d1d1f] dark:text-white font-medium py-2 px-4 rounded-lg transition-all duration-200 hover:scale-105 text-sm"
                     >
                       <CodeBracketIcon className="h-4 w-4" />
                       View Code
@@ -261,10 +229,10 @@ const ProjectModal = ({
                 animate="visible"
                 className="mb-4"
               >
-                <h2 className="text-2xl md:text-3xl font-light text-white mb-3 tracking-tight">
+                <h2 className="text-2xl md:text-3xl font-light text-[#1d1d1f] dark:text-white mb-3 tracking-tight">
                   {project.title}
                 </h2>
-                <p className="text-base text-slate-300 leading-relaxed">
+                <p className="text-base text-[#6e6e73] dark:text-slate-300 leading-relaxed">
                   {project.description}
                 </p>
               </motion.div>
@@ -282,7 +250,7 @@ const ProjectModal = ({
                     {project.tag.filter(tag => tag !== 'All').map((tag) => (
                       <span
                         key={tag}
-                        className="px-3 py-1 bg-black/30 backdrop-blur-sm border border-white/30 text-white text-xs rounded-full tracking-wide"
+                        className="px-3 py-1 bg-black/[0.05] dark:bg-black/30 backdrop-blur-sm border border-black/10 dark:border-white/30 text-[#1d1d1f] dark:text-white text-xs rounded-full tracking-wide"
                       >
                         {tag}
                       </span>
@@ -300,28 +268,27 @@ const ProjectModal = ({
                   animate="visible"
                   className="mb-6"
                 >
-                  <div className="bg-black/20 backdrop-blur-sm rounded-lg p-4 border border-white/10">
+                  <div className="bg-black/[0.03] dark:bg-black/20 backdrop-blur-sm rounded-lg p-4 border border-black/8 dark:border-white/10">
                     <div
-                      className="prose prose-invert prose-sm max-w-none
-                        prose-headings:text-white prose-headings:font-light prose-headings:tracking-tight
+                      className="prose dark:prose-invert prose-sm max-w-none
+                        prose-headings:font-light prose-headings:tracking-tight
+                        prose-headings:text-[#1d1d1f] dark:prose-headings:text-white
                         prose-h1:text-2xl prose-h2:text-xl prose-h3:text-lg
-                        prose-p:text-slate-300 prose-p:leading-relaxed
-                        prose-ul:text-slate-300 prose-ol:text-slate-300
-                        prose-li:text-slate-300 prose-li:mb-1
-                        prose-strong:text-white prose-strong:font-medium
-                        prose-code:text-primary-300 prose-code:bg-black/30 prose-code:px-2 prose-code:py-1 prose-code:rounded prose-code:text-sm
-                        prose-pre:bg-black/40 prose-pre:border prose-pre:border-white/20 prose-pre:rounded-lg
-                        prose-blockquote:border-l-primary-400 prose-blockquote:border-l-4 prose-blockquote:pl-4 prose-blockquote:text-slate-300
-                        prose-a:text-primary-400 prose-a:no-underline hover:prose-a:text-primary-300 prose-a:transition-colors
+                        prose-p:text-[#6e6e73] dark:prose-p:text-slate-300 prose-p:leading-relaxed
+                        prose-ul:text-[#6e6e73] dark:prose-ul:text-slate-300
+                        prose-ol:text-[#6e6e73] dark:prose-ol:text-slate-300
+                        prose-li:text-[#6e6e73] dark:prose-li:text-slate-300 prose-li:mb-1
+                        prose-strong:text-[#1d1d1f] dark:prose-strong:text-white prose-strong:font-medium
+                        prose-code:text-primary-600 dark:prose-code:text-primary-300 prose-code:bg-black/[0.06] dark:prose-code:bg-black/30 prose-code:px-2 prose-code:py-1 prose-code:rounded prose-code:text-sm
+                        prose-pre:bg-black/[0.06] dark:prose-pre:bg-black/40 prose-pre:border prose-pre:border-black/10 dark:prose-pre:border-white/20 prose-pre:rounded-lg
+                        prose-blockquote:border-l-primary-400 prose-blockquote:border-l-4 prose-blockquote:pl-4 prose-blockquote:text-[#6e6e73] dark:prose-blockquote:text-slate-300
+                        prose-a:text-primary-600 dark:prose-a:text-primary-400 prose-a:no-underline hover:prose-a:text-primary-500 dark:hover:prose-a:text-primary-300 prose-a:transition-colors
                       "
                       dangerouslySetInnerHTML={{ __html: project.contentHtml }}
                     />
                   </div>
                 </motion.div>
               )}
-
-
-
             </div>
           </motion.div>
         </motion.div>

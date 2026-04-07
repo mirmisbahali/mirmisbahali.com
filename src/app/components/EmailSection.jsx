@@ -19,7 +19,7 @@ const EmailSection = () => {
     const rect = e.currentTarget.getBoundingClientRect();
     const centerX = rect.left + rect.width / 2;
     const centerY = rect.top + rect.height / 2;
-    const deltaX = (e.clientX - centerX) * 0.15; // Reduce movement intensity
+    const deltaX = (e.clientX - centerX) * 0.15;
     const deltaY = (e.clientY - centerY) * 0.15;
     setMousePosition({ x: deltaX, y: deltaY });
   };
@@ -37,7 +37,7 @@ const EmailSection = () => {
     e.preventDefault();
     setIsSubmitting(true);
     const data = new FormData(e.target);
-    
+
     try {
       const response = await fetch("https://formspree.io/f/myzgjvjb", {
         method: "POST",
@@ -46,13 +46,13 @@ const EmailSection = () => {
           'Accept': 'application/json'
         }
       });
-      
+
       if (response.ok) {
         console.log("Message sent.");
         setIsSubmitting(false);
         setEmailSubmitted(true);
         setShowParticles(true);
-        
+
         // Reset form after successful submission
         setTimeout(() => {
           setEmailSubmitted(false);
@@ -70,7 +70,7 @@ const EmailSection = () => {
     <section id="contact" className="relative">
       {/* Apple-style subtle background */}
       <div className="absolute inset-0 bg-gradient-to-br from-primary-500/5 via-transparent to-secondary-500/5 rounded-3xl" />
-      
+
       <div className="relative z-10 text-center mb-12">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -78,22 +78,22 @@ const EmailSection = () => {
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
         >
-          <p className="text-primary-400 text-sm font-medium uppercase tracking-wider mb-2">Get in Touch</p>
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-light text-white tracking-tight leading-none mb-6">
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-white to-slate-300">
+          <p className="text-primary-600 dark:text-primary-400 text-sm font-medium uppercase tracking-wider mb-2">Get in Touch</p>
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-light text-[#1d1d1f] dark:text-white tracking-tight leading-none mb-6">
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#1d1d1f] to-[#6e6e73] dark:from-white dark:to-slate-300">
               Let&apos;s Connect
             </span>
           </h2>
-          <p className="text-lg md:text-xl text-slate-300 font-light leading-relaxed max-w-2xl mx-auto">
+          <p className="text-lg md:text-xl text-[#3d3d3d] dark:text-slate-300 font-light leading-relaxed max-w-2xl mx-auto">
             Ready to collaborate on your next project? I&apos;d love to hear from you.
             <br />
-            <span className="text-slate-400">Drop me a message and let&apos;s create something amazing together.</span>
+            <span className="text-[#6e6e73] dark:text-slate-400">Drop me a message and let&apos;s create something amazing together.</span>
           </p>
         </motion.div>
       </div>
 
       {/* Apple-style social links */}
-      <motion.div 
+      <motion.div
         className="flex justify-center gap-4 mb-12"
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -101,17 +101,17 @@ const EmailSection = () => {
         viewport={{ once: true }}
       >
         <Link href="https://github.com/mirmisbahali">
-          <motion.div 
-            className="w-12 h-12 bg-white/10 backdrop-blur-md border border-white/20 rounded-full flex items-center justify-center hover:bg-white/20 transition-all duration-200"
+          <motion.div
+            className="w-12 h-12 bg-black/[0.06] dark:bg-white/10 backdrop-blur-md border border-black/10 dark:border-white/20 rounded-full flex items-center justify-center hover:bg-black/10 dark:hover:bg-white/20 transition-all duration-200"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
-            <Image src={GithubIcon} alt="Github" className="w-6 h-6" />
+            <Image src={GithubIcon} alt="Github" className="w-6 h-6 dark:invert-0 invert" />
           </motion.div>
         </Link>
         <Link href="https://www.linkedin.com/in/mirmisbahali/">
-          <motion.div 
-            className="w-12 h-12 bg-white/10 backdrop-blur-md border border-white/20 rounded-full flex items-center justify-center hover:bg-white/20 transition-all duration-200"
+          <motion.div
+            className="w-12 h-12 bg-black/[0.06] dark:bg-white/10 backdrop-blur-md border border-black/10 dark:border-white/20 rounded-full flex items-center justify-center hover:bg-black/10 dark:hover:bg-white/20 transition-all duration-200"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
@@ -128,14 +128,14 @@ const EmailSection = () => {
         transition={{ duration: 0.6, delay: 0.2 }}
         viewport={{ once: true }}
       >
-        <div className="bg-white/5 backdrop-blur-xl border border-white/10 rounded-3xl p-8 md:p-12 shadow-2xl">
+        <div className="bg-white/80 dark:bg-white/5 backdrop-blur-xl border border-black/8 dark:border-white/10 rounded-3xl p-8 md:p-12 shadow-lg dark:shadow-2xl">
           <form className="space-y-6" onSubmit={handleSubmit}>
             {/* Apple-style form fields */}
             <div className="grid md:grid-cols-2 gap-6">
               <div>
                 <label
                   htmlFor="email"
-                  className="block text-sm font-medium text-slate-300 mb-2 tracking-wide"
+                  className="block text-sm font-medium text-[#1d1d1f] dark:text-slate-300 mb-2 tracking-wide"
                 >
                   Email Address
                 </label>
@@ -144,14 +144,14 @@ const EmailSection = () => {
                   type="email"
                   id="email"
                   required
-                  className="w-full px-4 py-4 bg-white/5 backdrop-blur-md border border-white/10 focus:border-white/20 rounded-2xl text-white placeholder-slate-400 text-base transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-primary-500/20"
+                  className="w-full px-4 py-4 bg-white dark:bg-white/5 backdrop-blur-md border border-black/10 dark:border-white/10 focus:border-primary-500/50 dark:focus:border-white/20 rounded-2xl text-[#1d1d1f] dark:text-white placeholder-[#86868b] dark:placeholder-slate-400 text-base transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-primary-500/20"
                   placeholder="your@email.com"
                 />
               </div>
               <div>
                 <label
                   htmlFor="subject"
-                  className="block text-sm font-medium text-slate-300 mb-2 tracking-wide"
+                  className="block text-sm font-medium text-[#1d1d1f] dark:text-slate-300 mb-2 tracking-wide"
                 >
                   Subject
                 </label>
@@ -160,16 +160,16 @@ const EmailSection = () => {
                   type="text"
                   id="subject"
                   required
-                  className="w-full px-4 py-4 bg-white/5 backdrop-blur-md border border-white/10 focus:border-white/20 rounded-2xl text-white placeholder-slate-400 text-base transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-primary-500/20"
+                  className="w-full px-4 py-4 bg-white dark:bg-white/5 backdrop-blur-md border border-black/10 dark:border-white/10 focus:border-primary-500/50 dark:focus:border-white/20 rounded-2xl text-[#1d1d1f] dark:text-white placeholder-[#86868b] dark:placeholder-slate-400 text-base transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-primary-500/20"
                   placeholder="Project collaboration"
                 />
               </div>
             </div>
-            
+
             <div>
               <label
                 htmlFor="message"
-                className="block text-sm font-medium text-slate-300 mb-2 tracking-wide"
+                className="block text-sm font-medium text-[#1d1d1f] dark:text-slate-300 mb-2 tracking-wide"
               >
                 Message
               </label>
@@ -178,7 +178,7 @@ const EmailSection = () => {
                 id="message"
                 rows={6}
                 required
-                className="w-full px-4 py-4 bg-white/5 backdrop-blur-md border border-white/10 focus:border-white/20 rounded-2xl text-white placeholder-slate-400 text-base transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-primary-500/20 resize-none"
+                className="w-full px-4 py-4 bg-white dark:bg-white/5 backdrop-blur-md border border-black/10 dark:border-white/10 focus:border-primary-500/50 dark:focus:border-white/20 rounded-2xl text-[#1d1d1f] dark:text-white placeholder-[#86868b] dark:placeholder-slate-400 text-base transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-primary-500/20 resize-none"
                 placeholder="Tell me about your project ideas, challenges, or just say hello..."
               />
             </div>
@@ -214,7 +214,7 @@ const EmailSection = () => {
                   ease: "easeInOut",
                 }}
               />
-              
+
               <button
                 type="submit"
                 disabled={emailSubmitted || isSubmitting}
@@ -227,7 +227,7 @@ const EmailSection = () => {
                 } backdrop-blur-md border text-white tracking-wide`}
               >
                 {/* Dynamic gradient overlay */}
-                <motion.span 
+                <motion.span
                   className="absolute inset-0 bg-gradient-to-r from-primary-400/30 via-secondary-500/40 to-primary-400/30"
                   animate={{
                     opacity: isHovering ? [0, 1, 0] : 0,
@@ -239,7 +239,7 @@ const EmailSection = () => {
                     ease: "easeInOut",
                   }}
                 />
-                
+
                 <span className="relative z-10 flex items-center justify-center">
                   {emailSubmitted ? (
                     <motion.div

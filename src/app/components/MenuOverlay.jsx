@@ -7,23 +7,23 @@ const MenuOverlay = ({ links, onClose }) => {
     <>
       {/* Apple-style backdrop */}
       <motion.div
-        className="fixed inset-0 bg-black/60 backdrop-blur-xl z-40"
+        className="fixed inset-0 bg-black/30 dark:bg-black/60 backdrop-blur-xl z-40"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
         transition={{ duration: 0.3 }}
         onClick={onClose}
       />
-      
+
       {/* Apple-style mobile menu */}
       <motion.div
-        className="fixed top-24 left-6 right-6 z-50 bg-black/90 backdrop-blur-xl border border-white/10 rounded-2xl shadow-2xl overflow-hidden"
+        className="fixed top-24 left-6 right-6 z-50 bg-white/95 dark:bg-black/90 backdrop-blur-xl border border-black/10 dark:border-white/10 rounded-2xl shadow-2xl overflow-hidden"
         initial={{ opacity: 0, y: -20, scale: 0.95 }}
         animate={{ opacity: 1, y: 0, scale: 1 }}
         exit={{ opacity: 0, y: -20, scale: 0.95 }}
-        transition={{ 
-          type: "spring", 
-          stiffness: 300, 
+        transition={{
+          type: "spring",
+          stiffness: 300,
           damping: 25,
           duration: 0.3
         }}
@@ -37,11 +37,11 @@ const MenuOverlay = ({ links, onClose }) => {
               transition={{ delay: index * 0.1, duration: 0.2 }}
               onClick={onClose}
             >
-              <div className="w-full text-center py-4 px-6 hover:bg-white/5 rounded-xl transition-colors duration-200">
+              <div className="w-full text-center py-4 px-6 hover:bg-black/[0.04] dark:hover:bg-white/5 rounded-xl transition-colors duration-200">
                 <NavLink href={link.path} title={link.title} />
               </div>
               {index < links.length - 1 && (
-                <div className="mx-6 h-px bg-white/10" />
+                <div className="mx-6 h-px bg-black/8 dark:bg-white/10" />
               )}
             </motion.div>
           ))}
