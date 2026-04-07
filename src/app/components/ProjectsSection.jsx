@@ -14,9 +14,9 @@ const ProjectsSection = ({ projects, categories }) => {
     setTag(newTag);
   };
 
-  const filteredProjects = projects.filter((project) =>
-    project.tag.includes(tag)
-  );
+  const filteredProjects = tag === "All"
+    ? projects
+    : projects.filter((project) => project.tag.includes(tag));
 
   // Apple's signature easing curves and motion design
   const cardVariants = {

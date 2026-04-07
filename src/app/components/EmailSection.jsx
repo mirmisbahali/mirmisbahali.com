@@ -49,7 +49,6 @@ const EmailSection = () => {
 
       if (response.ok) {
         console.log("Message sent.");
-        setIsSubmitting(false);
         setEmailSubmitted(true);
         setShowParticles(true);
 
@@ -62,6 +61,7 @@ const EmailSection = () => {
       }
     } catch (error) {
       console.error("Error sending message:", error);
+    } finally {
       setIsSubmitting(false);
     }
   };
