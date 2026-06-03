@@ -56,7 +56,7 @@ const Navbar = () => {
               href={"/"}
               className="text-xl md:text-2xl lg:text-3xl text-[#1d1d1f] dark:text-white font-semibold tracking-tight hover:text-[#1d1d1f]/80 dark:hover:text-white/90 transition-colors duration-200"
             >
-              MISBAH
+              MIR MISBAH ALI
             </Link>
 
             {/* Desktop Navigation */}
